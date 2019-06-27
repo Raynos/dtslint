@@ -136,9 +136,6 @@ export async function checkTslintJson(dirPath: string, dt: boolean): Promise<voi
     }
 
     const tslintJson = await readJson(configPath);
-    if (!validateExtends(tslintJson.extends)) {
-        throw new Error(`If 'tslint.json' is present, it should extend "${shouldExtend}"`);
-    }
 }
 
 function getConfigPath(dirPath: string): string {

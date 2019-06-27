@@ -1,5 +1,5 @@
 {
-  "name": "dtslint",
+  "name": "raynos-dtslint",
   "version": "0.7.6",
   "description": "Runs tests on TypeScript definition files",
   "files": [

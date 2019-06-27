@@ -10,7 +10,7 @@ type IConfigurationFile = Configuration.IConfigurationFile;
 import { getProgram, Options as ExpectOptions } from "./rules/expectRule";
 
 import { typeScriptPath } from "./installer";
-import { readJson, withoutPrefix } from "./util";
+import { withoutPrefix } from "./util";
 
 export async function lint(
     dirPath: string,
@@ -123,8 +123,6 @@ function testNoTslintDisables(text: string): Err | undefined {
 export async function checkTslintJson(dirPath: string, dt: boolean): Promise<void> {
     const configPath = getConfigPath(dirPath);
     const shouldExtend = `dtslint/${dt ? "dt" : "dtslint"}.json`;
-    const validateExtends = (extend: string | string[]) =>
-        extend === shouldExtend || (!dt && Array.isArray(extend) && extend.some(val => val === shouldExtend));
 
     if (!await pathExists(configPath)) {
         if (dt) {
@@ -134,8 +132,6 @@ export async function checkTslintJson(dirPath: string, dt: boolean): Promise<voi
         }
         return;
     }
-
-    const tslintJson = await readJson(configPath);
 }
 
 function getConfigPath(dirPath: string): string {

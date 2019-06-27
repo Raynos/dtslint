@@ -9,7 +9,10 @@
     "dtslint-expect-only.json"
   ],
   "main": "bin",
-  "bin": "./bin/index.js",
+  "bin": {
+    "dtslint": "./bin/index.js",
+    "raynos-dtslint": "./bin/index.js"
+  },
   "contributors": [
     "Nathan Shively-Sanders <nathansa@microsoft.com> (https://github.com/sandersn)",
     "Andy Hanson <andy-ms@microsoft.com> (https://github.com/andy-ms)",
